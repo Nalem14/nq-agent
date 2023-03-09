@@ -238,9 +238,9 @@ data_post="token=${auth[0]}&data=$(base "$version") $(base "$uptime") $(base "$s
 # API request with automatic termination
 if [ -n "$(command -v timeout)" ]
 then
-	timeout -s SIGKILL 30 wget -q -o /dev/null -O /etc/nodequery/nq-agent.log -T 25 --post-data "$data_post" --no-check-certificate "https://status.orion-serv.fr/api/agent"
+	timeout -s SIGKILL 30 wget -q -o /dev/null -O /etc/nodequery/nq-agent.log -T 25 --post-data "$data_post" --no-check-certificate "https://orion-serv.ovh/api/agent"
 else
-	wget -q -o /dev/null -O /etc/nodequery/nq-agent.log -T 25 --post-data "$data_post" --no-check-certificate "https://status.orion-serv.fr/api/agent"
+	wget -q -o /dev/null -O /etc/nodequery/nq-agent.log -T 25 --post-data "$data_post" --no-check-certificate "https://orion-serv.ovh/api/agent"
 	wget_pid=$! 
 	wget_counter=0
 	wget_timeout=30
